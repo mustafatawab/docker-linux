@@ -38,7 +38,19 @@ docker build -t my-dev-image .
 First 8000 port is for out mechine where the container will be running and second 8000 port is inside the container where our containerized will  be running.
 ```
 docker run -d -p 8000:8000 imageName:tag | docker run -d --name my-container -p 8000:8000 imageName
+
+
+# Interactive Mode
+docker run -it -p 8000:8000 imageName:tag /bin/bash
 ```
+ 
+     
+**Test the container**
+```
+docker run -it --rm my-dev-image /bin/bash -c "poetry run pytest"
+```
+
+
 
 **Inspect Image**
 ```
@@ -52,11 +64,10 @@ docker logs my-container
 ```
 
 
-Interact with the container
+**Interact with the container**
 ```
 docker exec -it my-container /bin/bash
 ```
-
 
 
 
