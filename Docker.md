@@ -69,6 +69,10 @@ docker logs my-container
 docker exec -it my-container /bin/bash
 ```
 
+**Build Image from the Container**
+```
+docker commit <continer_name which is running | id> <image_name which will be created from the container>
+```
 
 
 

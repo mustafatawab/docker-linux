@@ -48,3 +48,14 @@ Non Empty Directory
 cp -r <source_directory> <destination_directory>
 ```
 
+
+**List of Files and Directories**
+
+```
+ls
+
+ls -a
+
+```
+
+
