@@ -109,3 +109,41 @@ EXPOSE 8000
 CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--reload"]
 
 ```
+
+
+**compose.yaml**
+
+```yaml
+version: "1.0"
+name: "fastapi"
+services:
+    api:
+        build: 
+          context: ./
+          dockerfile: Dockerfile
+        container_name: fastapicontainer
+        ports:
+          - "8000:8000" 
+
+```
+
+### CMD Command
+
+version
+```
+docker compose version 
+```
+
+Run compose.yaml file
+```
+docker compose up -d
+```
+
+Check the file in the command
+```
+docker compose config
+```
+
+
+
+
