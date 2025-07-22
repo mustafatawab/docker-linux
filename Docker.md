@@ -64,7 +64,7 @@ docker logs my-container
 ```
 
 
-**Interact with the container**
+**Interact with the Running container**
 ```
 docker exec -it my-container /bin/bash
 ```
@@ -76,6 +76,10 @@ docker commit <continer_name which is running | id> <image_name which will be cr
 
 
 
+**Rmove the image**
+```
+docker rmi baseImage
+```
 
 
 
@@ -111,6 +115,8 @@ CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--reload"
 ```
 
 
+## Docker Compose
+
 **compose.yaml**
 
 ```yaml
@@ -134,9 +140,25 @@ version
 docker compose version 
 ```
 
-Run compose.yaml file
+Run compose.yaml file and create container
 ```
 docker compose up -d
+```
+
+Build the image again
+```
+docker compose up -d --build
+```
+
+
+Removed Contianer
+```
+docker compose down
+```
+
+List
+```
+docker compose ps
 ```
 
 Check the file in the command
@@ -144,6 +166,12 @@ Check the file in the command
 docker compose config
 ```
 
+Stop Container
+```
+docker compose stop
+```
 
-
-
+Start Container
+```
+docker compoae start
+```
