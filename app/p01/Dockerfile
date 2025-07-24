@@ -8,8 +8,7 @@ COPY . /code/
  
 RUN pip install uv
 
-RUN uv add  "fastapi[standard]" 
+RUN uv add  "fastapi[standard]" uvicorn
 
-EXPOSE 8000
 
-CMD ["uv", "run", "fastapi", "dev", "main.py", "--reload"]
+CMD ["uv", "run", "fastapi", "dev", "main.py", "--host", "0.0.0.0", "--port", "8000"    ]
