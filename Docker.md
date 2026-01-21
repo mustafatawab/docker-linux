@@ -44,6 +44,9 @@ docker run -d -p 8000:8000 imageName:tag | docker run -d --name my-container -p 
 docker run -it -p 8000:8000 imageName:tag /bin/bash
 ```
  
+```
+docker exec -t conatiner_name /bin/bash
+```
      
 **Test the container**
 ```
