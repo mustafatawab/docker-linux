@@ -1,3 +1,5 @@
+FROM python
+
 LABEL maintainer="ameen-alam"
 # Set the working directory in the container
 WORKDIR /code
