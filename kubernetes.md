@@ -48,6 +48,12 @@ Note: `kubectl` is a client tool to interact with the cluster.
 
 `alias k=kubectl` Create alias for kubectl
 
+`kubectl get events -n <namespace>` Check events
+
+`kubectl get pods -n <namespace>` Check pods
+
+`kubectl get nodes` Check nodes
+
 ---
 
 `kubectl run <pod-name> --image=<image-name> --restart=Never -n <namespace>` Create pod
@@ -73,6 +79,8 @@ e.g `kubectl logs nginx -n nginx`
 e.g `kubectl describe pod nginx -n nginx`
 
 ---
+
+`kubectl port-forward pod/nginx 8000:80`
 
 ### Namespaces
 
