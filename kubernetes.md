@@ -40,7 +40,7 @@ Note: `kubectl` is a client tool to interact with the cluster.
 
 `kubectl create ns <namespace>` Create namespace
 
-`kubectl delete ns <namespace>` Delete namespace
+`kubectl delete ns <namespace>` Deklete namespace
 
 `kubectl api-resources` Check api resources
 
@@ -82,8 +82,64 @@ e.g `kubectl describe pod nginx -n nginx`
 
 `kubectl port-forward pod/nginx 8000:80`
 
+---
+
+---
+
+`kubectl get no` Check nodes <br>
+`kubectl get nodes` check nodes <br>
+`kubectl get node` check nodes <br>
+`kubectl get node -o wide` check nodes <br>
+
+---
+
+`kubectl config current-context` Check current context
+
+`kube explain Role` Check role
+
 ### Namespaces
 
 1. Scope = Payment, Shipment, Add to Cart, Control Plan
 2. Policy Attachement
 3. Resource Accounting
+
+### RBAC (Role-Based Access Control)
+
+1. Role
+2. ClusterRole
+3. RoleBinding
+4. ClusterRoleBinding
+
+Create `role.yaml`
+
+```yaml
+kind: Role
+apiVersioon: rbac.authorize.k8s.io/v1
+metadata:
+  name: fundtransfer-deployer
+  namespace: fundtransfer
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployement", "replicaset"]
+    verbs: ["get", "list", "create", "update", "patch"]
+  - apiGroupds: [""]
+    resources: ["pods", "service"]
+    verbs: ["get", "list"]
+```
+
+Create namspace for **_fundtransfer_** -
+`kubectl create ns fundtransfer`
+
+Then Run **_role.yaml_** file -
+`kubectl apply -f role.yaml`
+
+Check the role in the namespace -
+`kubectl get role -n fundtransfer`
+
+Create Service Acount - `kubectl create serviceaccount <service-account-name> -n <namespace>`
+
+e.g `kubectl create serviceaccount deployer -n fundtransfer`
+
+e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client`
+
+e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o yaml`
