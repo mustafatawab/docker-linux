@@ -110,6 +110,8 @@ e.g `kubectl describe pod nginx -n nginx`
 3. RoleBinding
 4. ClusterRoleBinding
 
+Blast Radius should be minimize. Create a yaml file (declarative style)
+
 Create `role.yaml`
 
 ```yaml
@@ -136,6 +138,12 @@ Then Run **_role.yaml_** file -
 Check the role in the namespace -
 `kubectl get role -n fundtransfer`
 
+#### Assigning Role To:
+
+- User
+- Group
+- Service Account - a specialized, non-human identity assigned to Pods, allowing applications running within them to securely authenticate with the Kubernetes API server
+
 Create Service Acount - `kubectl create serviceaccount <service-account-name> -n <namespace>`
 
 e.g `kubectl create serviceaccount deployer -n fundtransfer`
@@ -143,3 +151,27 @@ e.g `kubectl create serviceaccount deployer -n fundtransfer`
 e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client`
 
 e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o yaml`
+
+`kubectl get serviceaccount -n <namespace>` Get service account
+
+`kubectl get sa -n <namespace>` Get service account
+
+---
+
+`kubectl explain RoleBinding` Explain RoleBinding
+
+`kubectl explain roleBinding.subjects` Explain RoleBinding Subjects
+
+`kubectl explain roleBinding.subjects.apiGroup` Explain RoleBinding Subjects apiGroup
+
+`kubectl explain roleBinding.subjects.kind` Explain RoleBinding Subjects kind
+
+`kubectl explain roleBinding.subjects.name` Explain RoleBinding Subjects name
+
+`kubectl explain roleBinding.subjects.apiGroup` Explain RoleBinding Subjects apiGroup
+
+`kubectl explain roleBinding.roleRef` Explain RoleBinding RoleRef
+
+---
+
+`kubectl auth can-i create deployment -n fundtransfer --as system:serviceaccount:fundtransfer:deployer` Check if deployer can create deployment in fundtransfer namespace

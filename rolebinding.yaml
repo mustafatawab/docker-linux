@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: deployer-binding
+  namespace: fundtransfer
+subjects:
+- kind: ServiceAccount
+  name: deployer
+  namespace: fundtransfer
+roleRef:
+  kind: Role
+  name: fundtransfer-deployer
+  apiGroup: rbac.authorization.k8s.io
+
