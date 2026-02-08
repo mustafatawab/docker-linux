@@ -5,7 +5,7 @@ metadata:
   namespace: fundtransfer
 rules:
   - apiGroups: ["apps"]
-    resources: ["deployements", "replicasets"]
+    resources: ["deployments", "replicasets"]
     verbs: ["get", "list", "create", "update", "patch"]
   - apiGroups: [""]
     resources: ["pods", "services"]

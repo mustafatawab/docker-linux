@@ -175,3 +175,19 @@ e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o 
 ---
 
 `kubectl auth can-i create deployment -n fundtransfer --as system:serviceaccount:fundtransfer:deployer` Check if deployer can create deployment in fundtransfer namespace
+
+`kubectl auth can-i create deployments -n fundtransfer --as system:serviceaccount:fundtransfer:deployer`
+
+---
+
+---
+
+`kubectl run --image=busybox --restart=Never --port=80`
+
+`kubectl run --image=busybox -it --rm --restart=Never`
+
+`kubectl run --image=busybox -it --rm --restart=Never -- env`
+
+`kubectl run --image=busybox -it --rm --restart=Never -- /bin/sh -c "sleep 10 && echo 'hello'"`
+
+`kubectl port-forward <pod-name> <local-port>:<pod-port>`
