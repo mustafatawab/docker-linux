@@ -32,6 +32,10 @@ Note: `kubectl` is a client tool to interact with the cluster.
 
 `kubectl cluster-info` Check cluster info
 
+`kubectl config view` Check config
+
+`kubectl config get-contexts` Check contexts
+
 `kubectl get nodes` Check nodes
 
 `kubectl version` Check kubectl version
@@ -191,3 +195,13 @@ e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o 
 `kubectl run --image=busybox -it --rm --restart=Never -- /bin/sh -c "sleep 10 && echo 'hello'"`
 
 `kubectl port-forward <pod-name> <local-port>:<pod-port>`
+
+`kubectl run fastapi-dev2 --image=ameenalam/cloud-native-fastapi:dev --labels="app=backend,"stack=fastapi"`
+
+`kubectl run fastapi-dev --image=ameenalam/cloud-native-fastapi:dev --labels="app=backend,"stack=fastapi" --dry-run=client -o yaml > fastapi-dev.yaml`
+
+`kubectl get pods -l app=backend`
+
+`kubectl get pods -l stack=fastapi`
+
+`kubectl get pods -l app=backend,stack=fastapi`
