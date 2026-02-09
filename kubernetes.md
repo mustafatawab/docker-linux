@@ -34,7 +34,13 @@ Note: `kubectl` is a client tool to interact with the cluster.
 
 `kubectl config view` Check config
 
+`kubectl config view --raw` Check config raw
+
 `kubectl config get-contexts` Check contexts
+
+`kubectl config current-context` Check current context
+
+`kubectl config use-context <context-name>` Use context
 
 `kubectl get nodes` Check nodes
 
@@ -109,10 +115,10 @@ e.g `kubectl describe pod nginx -n nginx`
 
 ### RBAC (Role-Based Access Control)
 
-1. Role
-2. ClusterRole
-3. RoleBinding
-4. ClusterRoleBinding
+1. Role -> Scope = Namespace
+2. ClusterRole -> Scope = Cluster
+3. RoleBinding -> Scope = Namespace
+4. ClusterRoleBinding -> Scope = Cluster
 
 Blast Radius should be minimize. Create a yaml file (declarative style)
 
@@ -162,6 +168,8 @@ e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o 
 
 ---
 
+`kubectl create rolebinding <role-binding-name> --role=<role-name> --serviceaccount=<namespace>:<service-account-name> -n <namespace>` -> Create RoleBnding
+
 `kubectl explain RoleBinding` Explain RoleBinding
 
 `kubectl explain roleBinding.subjects` Explain RoleBinding Subjects
@@ -177,6 +185,24 @@ e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o 
 `kubectl explain roleBinding.roleRef` Explain RoleBinding RoleRef
 
 ---
+
+**roleBinding.yaml**
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: deployer-binding
+  namespace: fundtransfer
+subjects:
+  - kind: ServiceAccount
+    name: deployer
+    namespace: fundtransfer
+roleRef:
+  kind: Role
+  name: fundtransfer-deployer
+  apiGroup: rbac.authorization.k8s.io
+```
 
 `kubectl auth can-i create deployment -n fundtransfer --as system:serviceaccount:fundtransfer:deployer` Check if deployer can create deployment in fundtransfer namespace
 
@@ -205,3 +231,9 @@ e.g `kubectl create serviceaccount deployer -n fundtransfer --dry-run=client -o 
 `kubectl get pods -l stack=fastapi`
 
 `kubectl get pods -l app=backend,stack=fastapi`
+
+---
+
+---
+
+Create Token `kubectl create -n <namespace> token <service-account-name>`
