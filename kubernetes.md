@@ -237,3 +237,11 @@ roleRef:
 ---
 
 Create Token `kubectl create -n <namespace> token <service-account-name>`
+
+`kubectl config set-credentials <service-account-name> --token=<token>`
+
+`kubectl config set-context <context-name> --user=<service-account-name> --namespace=<namespace> --cluster=<cluster-name>`
+
+e.g `kubectl config set-context dev-context --user=deployer --namespace=fundtransfer --cluster=docker-desktop`
+
+`kubectl config use-context <context-name> ` Use context
