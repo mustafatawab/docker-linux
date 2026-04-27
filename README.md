@@ -1,178 +1,178 @@
-🧠 1. Prerequisites (Don’t Skip)
+# Kubernetes Complete Learning Roadmap
 
-Before Kubernetes, you should understand:
+## 1. Prerequisites
+- Containers & Images
+  - Docker basics
+  - Images, containers, volumes, networks
+- Linux Fundamentals
+  - Processes, namespaces, cgroups
+- Networking Basics
+  - IP, DNS, ports, load balancing
+- YAML Syntax
 
-Containers & images
-Docker basics
-Images, containers, volumes, networks
-Linux fundamentals
-Processes, namespaces, cgroups
-Networking basics
-IP, DNS, ports, load balancing
-YAML syntax (K8s is YAML-heavy)
-⚙️ 2. Kubernetes Fundamentals
+---
 
-Core concepts that define Kubernetes:
+## 2. Kubernetes Fundamentals
+- What is Kubernetes & why it exists
+- Cluster Architecture
+  - Control Plane
+  - Worker Nodes
+- Kubernetes Objects
+- Declarative vs Imperative Approach
+- Kubernetes API
+- kubectl CLI
 
-What is Kubernetes & why it exists
-Cluster architecture
-Control Plane vs Worker Nodes
-Kubernetes objects
-Declarative vs imperative approach
-Kubernetes API & kubectl
-📦 3. Core Objects (Very Important)
+---
 
-These are the building blocks:
+## 3. Core Objects
+- Pods
+- ReplicaSets
+- Deployments
+- StatefulSets
+- DaemonSets
+- Jobs
+- CronJobs
 
-Pods (smallest unit)
-ReplicaSets
-Deployments
-StatefulSets
-DaemonSets
-Jobs & CronJobs
+### Key Concepts
+- Pod Lifecycle
+- Scaling & Self-Healing
+- Rolling Updates & Rollbacks
 
-👉 You must deeply understand:
+---
 
-Lifecycle of a Pod
-Scaling & self-healing
-Rolling updates & rollbacks
-🌐 4. Networking in Kubernetes
+## 4. Networking
+- Cluster Networking Model
+- Services
+  - ClusterIP
+  - NodePort
+  - LoadBalancer
+- DNS in Kubernetes
+- Ingress
+- Ingress Controllers
+- Network Policies
 
-This is where many people struggle:
+---
 
-Cluster networking model
-Services
-ClusterIP
-NodePort
-LoadBalancer
-DNS in Kubernetes
-Ingress & Ingress Controllers
-Network Policies
-💾 5. Storage
+## 5. Storage
+- Volumes
+- Persistent Volumes (PV)
+- Persistent Volume Claims (PVC)
+- Storage Classes
+- Dynamic Provisioning
 
-Handling persistent data:
+---
 
-Volumes
-Persistent Volumes (PV)
-Persistent Volume Claims (PVC)
-Storage Classes
-Dynamic provisioning
-🔐 6. Configuration & Secrets
+## 6. Configuration & Secrets
+- ConfigMaps
+- Secrets
+- Environment Variables
+- Mounting Configurations into Pods
 
-Managing app config:
+---
 
-ConfigMaps
-Secrets
-Environment variables
-Mounting configs into pods
-👤 7. Security
+## 7. Security
+- Authentication
+- Authorization
+- RBAC (Role-Based Access Control)
+- Service Accounts
+- Pod Security Standards
+- Network Security
 
-Critical for real-world use:
+---
 
-Authentication vs Authorization
-RBAC (Role-Based Access Control)
-Service Accounts
-Pod Security Standards
-Network security
-⚡ 8. Workloads & Scheduling
+## 8. Workloads & Scheduling
+- Kubernetes Scheduler
+- Node Selectors
+- Taints & Tolerations
+- Affinity & Anti-Affinity
+- Resource Requests & Limits
 
-How Kubernetes runs your apps:
+---
 
-Scheduler basics
-Node selectors
-Taints & tolerations
-Affinity & anti-affinity
-Resource requests & limits
-📊 9. Observability & Monitoring
+## 9. Observability & Monitoring
+- Logs
+- Events
+- Metrics
+- Health Checks
+  - Liveness Probes
+  - Readiness Probes
 
-How you debug and monitor:
+### Tools
+- Prometheus
+- Grafana
 
-Logs (kubectl logs)
-Events
-Metrics
-Health checks
-Liveness probes
-Readiness probes
+---
 
-Tools:
+## 10. Scaling & Performance
+- Horizontal Pod Autoscaler (HPA)
+- Vertical Pod Autoscaler (VPA)
+- Cluster Autoscaler
+- Resource Optimization
 
-Prometheus
-Grafana
-🚀 10. Scaling & Performance
+---
 
-Making systems production-ready:
+## 11. Advanced Workloads
+- Stateful Applications
+- Multi-container Pods
+- Sidecar Pattern
+- Init Containers
 
-Horizontal Pod Autoscaler (HPA)
-Vertical Pod Autoscaler (VPA)
-Cluster Autoscaler
-Resource optimization
-🧩 11. Advanced Workloads
+---
 
-For real production systems:
+## 12. CI/CD with Kubernetes
+- Rolling Deployments
+- Blue-Green Deployments
+- Canary Releases
 
-Stateful applications (databases)
-Multi-container Pods
-Sidecar pattern
-Init containers
-🔁 12. CI/CD with Kubernetes
+### Tools
+- Jenkins
+- GitHub Actions
 
-How apps get deployed:
+---
 
-Rolling deployments
-Blue-Green deployments
-Canary releases
+## 13. Package Management
+- Helm
+- Helm Charts
+- Releases & Templating
 
-Tools:
+---
 
-Jenkins
-GitHub Actions
-📦 13. Package Management
+## 14. Kubernetes in Cloud
+- Amazon EKS
+- Google Kubernetes Engine (GKE)
+- Azure Kubernetes Service (AKS)
 
-Managing complex apps:
+---
 
-Helm
-Helm charts
-Releases & templating
-☁️ 14. Kubernetes in Cloud
+## 15. Cluster Management
+- Cluster Installation (kubeadm, minikube, kind)
+- Upgrades
+- Backup & Restore
+- High Availability (HA Clusters)
 
-Managed Kubernetes services:
+---
 
-Amazon EKS
-Google Kubernetes Engine
-Azure Kubernetes Service
-🔧 15. Cluster Management
+## 16. Troubleshooting
+- Debugging Pods
+- CrashLoopBackOff
+- ImagePullBackOff
+- Network Issues
+- Resource Starvation
 
-Running Kubernetes itself:
+---
 
-Installing clusters (kubeadm, minikube, kind)
-Upgrades
-Backup & restore
-High availability (HA clusters)
-🔍 16. Troubleshooting
+## 17. Advanced Concepts
+- Custom Resource Definitions (CRDs)
+- Operators
+- API Extensions
+- Service Mesh
 
-This separates beginners from engineers:
+### Tools
+- Istio
 
-Debugging pods
-CrashLoopBackOff
-ImagePullBackOff
-Network issues
-Resource starvation
-🧠 17. Advanced Concepts (Expert Level)
+---
 
-Only after you’re comfortable:
-
-Custom Resource Definitions (CRDs)
-Operators
-API extensions
-Service mesh
-
-Tools:
-
-Istio
-🧪 18. Ecosystem & Real-World Tools
-
-You’ll see these in jobs:
-
-Argo CD
-Terraform
-Flux
+## 18. Ecosystem & Real-World Tools
+- Argo CD
+- Terraform
+- Flux
